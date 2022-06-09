@@ -1,0 +1,66 @@
+1.
+	a) Super user:
+		sudo -s
+		mkdir lab02assignment01
+		cd lab02assignment01
+
+	b)Creating 3 files:
+		cat > key1.txt
+		cat > key2.txt
+		cat > key3.txt
+
+	c)Creating 2 directories:
+		mkdir Box1
+		mkdir Box2
+
+	d)Copying key1.txt and key2.txt to Box1 directory:
+		cp key1.txt Box1
+		cp key2.txt Box1
+
+	e) Moving key3.txt to the Box2 directory:
+		mv key3.txt Box2
+
+	f) Copying the Box1 directory along with contents to the Box3 directory
+		mkdir Box3
+		cp -r Box1 Box3
+
+	g) Now move into the Box3 directory and check the permissions of the files in there and change the permissions  
+	   for both user andgroup to only read-execute for all the files that have read-write-execute permissions:
+		cd Box3
+		ls -l
+		chmod 555 Box1 (Here i didn't change for execution part. I only change the user & group part)
+
+	h) Now go back one directory and print the current working directory and then print all the directories and files in the current working directory
+		cd ..
+		pwd
+		ls -a
+
+	i) Finally move the Box3 folder to the root directory and delete the rest of the files and folders in the current working directory:
+		mv Box3 /
+		rm -r *
+
+2. Count the lines containing the word “Hello” in a file named hello.txt
+	cat > hello.txt
+	grep -c "Hello" hello.txt
+
+3. What is the difference between soft and hard links?
+	Soft link:
+	1. A soft link provides the reference link of an actual file. We can use this system as a short cut of a original source.
+	2. It provides the destination/path of original file/source.
+  	3. It can link the directories.
+
+	Hard link:
+	1. In hard link, all of the source file will be available in the link file. If we edit one file
+	   the linked file will also be changed.
+	2. I has the same inodex number.
+	3. It can not link the directories.
+
+4. Create a file name firstone.txt 
+   Create a second file name second.txt with the contents of firstone.txt [ don’t use copy here]
+	cat > firstone.txt
+	ln firstone.txt second.txt
+
+5. Show all the hidden files in a directory
+	ls -a
+6. Show only lines 15-21 of a .txt file
+	sed -n 15,21p shan.txt
